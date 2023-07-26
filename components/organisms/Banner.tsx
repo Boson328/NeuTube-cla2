@@ -12,7 +12,7 @@ import { Box } from "@mui/material";
 
 import BannerButtons from "../molecules/BannerButtons";
 
-import type { Item } from "@/pages/_utils/types";
+import type { Item } from "@/utils/types";
 
 const iconSx = {
   height: "30px",

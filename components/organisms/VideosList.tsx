@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box } from "@mui/material";
 
-import Video from "../molecules/Video";
+import Video from "@/components/molecules/Video";
 
 export default function VideosList() {
   return (

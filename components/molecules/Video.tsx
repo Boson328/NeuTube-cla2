@@ -1,6 +1,6 @@
 import React from "react";
 
-import SkeletonVideo from "../atoms/SkeletonVideo";
+import SkeletonVideo from "@/components/atoms/SkeletonVideo";
 
 export default function Video() {
   return (

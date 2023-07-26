@@ -2,9 +2,9 @@ import React from "react";
 
 import { Box } from "@mui/material";
 
-import Banner from "../organisms/Banner";
-import Body from "../organisms/Body";
-import Header from "../organisms/Header";
+import Banner from "@/components/organisms/Banner";
+import Body from "@/components/organisms/Body";
+import Header from "@/components/organisms/Header";
 
 export default function Main({ children }: { children: React.ReactNode }) {
   return (

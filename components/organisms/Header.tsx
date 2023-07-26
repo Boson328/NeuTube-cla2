@@ -2,9 +2,9 @@ import React from "react";
 
 import { Box } from "@mui/material";
 
-import Logo from "../molecules/Logo";
-import RightButtons from "../molecules/RightButtons";
-import Search from "../molecules/Search";
+import Logo from "@/components/molecules/Logo";
+import RightButtons from "@/components/molecules/RightButtons";
+import Search from "@/components/molecules/Search";
 
 export default function Header() {
   return (

@@ -1,10 +1,11 @@
 import { ThemeProvider } from "@mui/material";
-import NextNprogress from "nextjs-progressbar"; // ここ！
+import NextNprogress from "nextjs-progressbar";
 
-import Main from "./_components/templates/Main";
-import { theme } from "./_utils/theme";
-
+// eslint-disable-next-line import/order
 import type { AppProps } from "next/app";
+
+import Main from "@/components/templates/Main";
+import { theme } from "@/utils/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

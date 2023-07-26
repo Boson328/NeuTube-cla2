@@ -3,9 +3,9 @@ import React from "react";
 import { Box } from "@mui/material";
 import Link from "next/link";
 
-import AllLogo from "../atoms/AllLogo";
-import BannerMenu from "../atoms/BannerMenu";
-import IconLogo from "../atoms/IconLogo";
+import AllLogo from "@/components/atoms/AllLogo";
+import BannerMenu from "@/components/atoms/BannerMenu";
+import IconLogo from "@/components/atoms/IconLogo";
 
 export default function Logo() {
   return (

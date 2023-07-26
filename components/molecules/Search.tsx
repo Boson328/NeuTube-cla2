@@ -3,9 +3,9 @@ import React, { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-import SearchButton from "@/pages/_components/atoms/SearchButton";
-import SearchInput from "@/pages/_components/atoms/SearchInput";
-import { narrow } from "@/pages/_utils/narrow";
+import SearchButton from "@/components/atoms/SearchButton";
+import SearchInput from "@/components/atoms/SearchInput";
+import { narrow } from "@/utils/narrow";
 
 // 一時的にやってるだけ
 const lists: string[] = [

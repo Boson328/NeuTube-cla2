@@ -14,7 +14,7 @@ export default function Notifications() {
           backgroundColor: "primary.main",
           borderRadius: "50px",
           color: "black",
-          fontSize: "12px",
+          fontSize: "10px",
           fontWeight: "700",
           height: "13px",
           left: "28px",

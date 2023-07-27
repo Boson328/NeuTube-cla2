@@ -8,7 +8,13 @@ import Header from "@/components/organisms/Header";
 
 export default function Main({ children }: { children: React.ReactNode }) {
   return (
-    <Box sx={{ bgcolor: "primary.dark", height: "100vh", width: "100vw" }}>
+    <Box
+      sx={{
+        bgcolor: "primary.dark",
+        height: "100vh",
+        width: "100vw"
+      }}
+    >
       <Header />
       <Box
         sx={{

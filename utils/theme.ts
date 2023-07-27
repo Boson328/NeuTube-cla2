@@ -12,7 +12,23 @@ export const theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: `
+      styleOverrides: `    
+      ::-webkit-scrollbar {
+        width: 18px;
+      },
+      ::-webkit-scrollbar-thumb {
+        background-color: gray;
+        border-radius: 20px;
+        border: 4px solid transparent;
+        background-clip: padding-box;
+      },
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #505050;
+      },
+      ::-webkit-scrollbar-track {
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
       @font-face {
         font-family: "line seed";
         src:

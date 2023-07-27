@@ -10,7 +10,7 @@ export default function Heading({ title }: { title?: string }) {
   return (
     <Head>
       <title>{appTitle}</title>
-      <link href="/img/favicon.ico" rel="icon" />
+      <link href="/favicon.ico" rel="icon" />
       <meta charSet="utf-8" />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta content={appDesc} name="description" />

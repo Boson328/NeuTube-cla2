@@ -15,7 +15,8 @@ export default function Logo() {
           color: "primary.main",
           cursor: "pointer",
           display: "flex",
-          m: "32px"
+          m: "32px",
+          width: { lg: "200px", xs: "80px" }
         }}
       >
         <BannerMenu />

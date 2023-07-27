@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import SearchButton from "@/components/atoms/SearchButton";
 import SearchInput from "@/components/atoms/SearchInput";
+import Suggests from "@/components/atoms/Suggests";
 import { narrow } from "@/utils/narrow";
 
 // 一時的にやってるだけ
@@ -56,7 +57,6 @@ export default function Search() {
       sx={{
         color: "white",
         height: "200px",
-        marginLeft: "80px",
         maxWidth: "700px",
         position: "relative",
         width: "40%"
@@ -74,6 +74,12 @@ export default function Search() {
         />
         <SearchButton search={search} />
       </Box>
+      <Suggests
+        inputRef={inputRef}
+        isFocus={isFocus}
+        search={search}
+        suggests={suggests}
+      />
     </Box>
   );
 }

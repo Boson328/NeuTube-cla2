@@ -1,9 +1,7 @@
 export function narrow(value: string, lists: string[]) {
   const analy: { index: number; text: string }[] = lists.flatMap((li) => {
     const match = li.match(value);
-    return match && match.index && match.input
-      ? { index: match.index, text: match.input }
-      : [];
+    return match ? { index: match.index!, text: match.input! } : [];
   });
 
   if (analy.length === 0) {

@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import NextNprogress from "nextjs-progressbar";
+import NextNProgress from "nextjs-progressbar";
 
 // eslint-disable-next-line import/order
 import type { AppProps } from "next/app";
@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NextNprogress color="#ddd" />
+        <NextNProgress color="#888" options={{ showSpinner: false }} />
         <CssBaseline />
         <Main>
           <Component {...pageProps} />

@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import YouTubePlayer from "react-youtube";
 
 import type { VideoInfo } from "@/utils/types";
+import type { GetStaticPropsContext } from "next";
 
 // eslint-disable-next-line import/order
 import { baseUrl } from "@/utils/baseUrl";
@@ -34,8 +35,8 @@ export async function getStaticPaths() {
 }
 
 // ルーティングの情報が入ったparamsを受け取る
-export async function getStaticProps({ params }: { params: { id: string } }) {
-  const id = params.id;
+export async function getStaticProps({ params }: GetStaticPropsContext) {
+  const id = params?.id;
   const res = await fetch(baseUrl() + "/api/server", {
     body: JSON.stringify({ id }),
     method: "POST"

@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Box } from "@mui/material";
+import { db } from "@vercel/postgres";
 import YouTubePlayer from "react-youtube";
 
 import type { VideoInfo } from "@/utils/types";
 import type { GetStaticPropsContext } from "next";
 
 // eslint-disable-next-line import/order
-import { baseUrl } from "@/utils/baseUrl";
 
 export default function Play({ info }: { info: VideoInfo }) {
   console.log(info.id);
@@ -28,20 +28,47 @@ export default function Play({ info }: { info: VideoInfo }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(baseUrl() + "/api/server");
-  const videos: VideoInfo[] = await res.json();
-  const paths = videos.map((repo) => `/play/${repo.id}`);
+  const client = await db.connect();
+  const result = await client.sql`SELECT * FROM videos`;
+  const videos: VideoInfo[] = result.rows.map((row) => {
+    return {
+      channel: {
+        icon: row.channel_icon,
+        id: row.channel_id,
+        title: row.channel_title
+      },
+      id: row.id,
+      kps: row.kps,
+      played: row.played,
+      thumbnail: row.thumbnail,
+      title: row.title
+    };
+  });
+  const paths = videos.map((video) => `/play/${video.id}`);
   return { fallback: false, paths };
 }
 
-// ルーティングの情報が入ったparamsを受け取る
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const id = params?.id;
-  const res = await fetch(baseUrl() + "/api/server", {
-    body: JSON.stringify({ id }),
-    method: "POST"
-  });
-  const info = await res.json();
+  const id: string = params?.id
+    ? Array.isArray(params?.id)
+      ? params?.id[0]
+      : params?.id
+    : "";
+  const client = await db.connect();
+  const result = await client.sql`SELECT * FROM videos WHERE id = ${id}`;
+  const row = result.rows[0];
+  const video: VideoInfo = {
+    channel: {
+      icon: row.channel_icon,
+      id: row.channel_id,
+      title: row.channel_title
+    },
+    id: row.id,
+    kps: row.kps,
+    played: row.played,
+    thumbnail: row.thumbnail,
+    title: row.title
+  };
 
-  return { props: { info } };
+  return { props: { info: video } };
 }

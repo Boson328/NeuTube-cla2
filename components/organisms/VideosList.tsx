@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 import Video from "@/components/molecules/Video";
 
-export default function VideosList() {
+export default function VideosList({ ids }: { ids: string[] }) {
   return (
     <Box
       sx={{
@@ -13,27 +13,9 @@ export default function VideosList() {
         justifyContent: "center"
       }}
     >
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-      <Video />
+      {ids.map((id) => (
+        <Video id={id} key={id} />
+      ))}
     </Box>
   );
 }

@@ -13,6 +13,9 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
+      .iframe {
+        border-radius: 20px
+      }
       ::-webkit-scrollbar {
         width: 18px;
       },

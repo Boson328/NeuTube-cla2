@@ -19,7 +19,7 @@ export default function BlockVideo({
   const height = width * imageAspect + width / 2;
   return (
     <Link
-      href={info.id}
+      href={"/play/" + info.id}
       style={{
         textDecoration: "none"
       }}
@@ -33,14 +33,14 @@ export default function BlockVideo({
       >
         <Image
           alt=""
+          height={width * imageAspect}
           src={info.thumbnail}
           style={{
             borderRadius: "10px",
-            height: width * imageAspect + "px",
             marginBottom: "10px",
-            objectFit: "cover",
-            width: width + "px"
+            objectFit: "cover"
           }}
+          width={width}
         />
         <Box sx={{ display: "flex" }}>
           <Avatar
@@ -56,7 +56,7 @@ export default function BlockVideo({
                 display: "-webkit-box",
                 fontSize: "15px",
                 fontWeight: "600",
-                margin: "0",
+                margin: "0 0 4px 0",
                 maxHeight: width / 4.8 + "px",
                 maxWidth: width - avatarSize - width / 15 + "px",
                 overflow: "hidden",
@@ -71,7 +71,7 @@ export default function BlockVideo({
                 color: "#aaaaaa",
                 fontSize: "12px",
                 fontWeight: "400",
-                margin: "0",
+                margin: "2px 0",
                 maxHeight: width / 10 + "px",
                 maxWidth: width - avatarSize - width / 15 + "px",
                 overflow: "hidden",

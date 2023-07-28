@@ -1,27 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import BlockVideo from "../atoms/BlockVideo";
+
+import type { VideoInfo } from "@/utils/types";
+
+// eslint-disable-next-line import/order
 import SkeletonVideo from "@/components/atoms/SkeletonVideo";
+// eslint-disable-next-line import/order
+import { baseUrl } from "@/utils/baseUrl";
 
-export default function Video() {
-  return (
-    <>
-      <SkeletonVideo />
-      {/* <BlockVideo
-        info={{
-          channel: {
-            icon: "https://www.coindeskjapan.com/wp-content/uploads/2021/03/Screen-Shot-2021-02-19-at-4.14.43-PM-710x458.jpg",
-            id: "",
-            title: "yajusenaaaaa"
-          },
-          id: "",
-          kps: 11.4,
-          played: 514,
-          thumbnail:
-            "https://www.coindeskjapan.com/wp-content/uploads/2021/03/Screen-Shot-2021-02-19-at-4.14.43-PM-710x458.jpg",
-          title:
-            "やりますねぇえええええええええええええええええええええええええええええええ"
-        }}
-      /> */}
-    </>
-  );
+export default function Video({ id }: { id: string }) {
+  const [info, setInfo] = useState<VideoInfo>();
+
+  async function getInfo() {
+    const res = await fetch(baseUrl() + "/api/server", {
+      body: JSON.stringify({ id }),
+      method: "POST"
+    });
+    console.log(res);
+    const video = await res.json();
+    setInfo(video);
+  }
+
+  useEffect(() => {
+    getInfo();
+  }, []);
+
+  return <>{info ? <BlockVideo info={info} /> : <SkeletonVideo />}</>;
 }

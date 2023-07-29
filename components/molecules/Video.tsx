@@ -6,18 +6,15 @@ import type { VideoInfo } from "@/utils/types";
 
 // eslint-disable-next-line import/order
 import SkeletonVideo from "@/components/atoms/SkeletonVideo";
-// eslint-disable-next-line import/order
-import { baseUrl } from "@/utils/baseUrl";
 
 export default function Video({ id }: { id: string }) {
   const [info, setInfo] = useState<VideoInfo>();
 
   async function getInfo() {
-    const res = await fetch(baseUrl() + "/api/server", {
+    const res = await fetch("/api/getServer", {
       body: JSON.stringify({ id }),
       method: "POST"
     });
-    console.log(res);
     const video = await res.json();
     setInfo(video);
   }

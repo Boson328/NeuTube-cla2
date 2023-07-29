@@ -5,9 +5,10 @@ import { db } from "@vercel/postgres";
 import YouTubePlayer from "react-youtube";
 
 import type { VideoInfo } from "@/utils/types";
-import type { GetStaticPropsContext } from "next";
+import type { GetServerSidePropsContext } from "next";
 
 // eslint-disable-next-line import/order
+import { toVideo } from "@/utils/toVideo";
 
 export default function Play({ info }: { info: VideoInfo }) {
   console.log(info.id);
@@ -27,28 +28,9 @@ export default function Play({ info }: { info: VideoInfo }) {
   );
 }
 
-export async function getStaticPaths() {
-  const client = await db.connect();
-  const result = await client.sql`SELECT * FROM videos`;
-  const videos: VideoInfo[] = result.rows.map((row) => {
-    return {
-      channel: {
-        icon: row.channel_icon,
-        id: row.channel_id,
-        title: row.channel_title
-      },
-      id: row.id,
-      kps: row.kps,
-      played: row.played,
-      thumbnail: row.thumbnail,
-      title: row.title
-    };
-  });
-  const paths = videos.map((video) => `/play/${video.id}`);
-  return { fallback: false, paths };
-}
-
-export async function getStaticProps({ params }: GetStaticPropsContext) {
+export async function getServerSideProps({
+  params
+}: GetServerSidePropsContext) {
   const id: string = params?.id
     ? Array.isArray(params?.id)
       ? params?.id[0]
@@ -57,18 +39,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   const client = await db.connect();
   const result = await client.sql`SELECT * FROM videos WHERE id = ${id}`;
   const row = result.rows[0];
-  const video: VideoInfo = {
-    channel: {
-      icon: row.channel_icon,
-      id: row.channel_id,
-      title: row.channel_title
-    },
-    id: row.id,
-    kps: row.kps,
-    played: row.played,
-    thumbnail: row.thumbnail,
-    title: row.title
-  };
+  const video: VideoInfo = toVideo(row);
 
   return { props: { info: video } };
 }

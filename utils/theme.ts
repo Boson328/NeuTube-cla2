@@ -13,6 +13,9 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
+      .iframe .ytp-pause-overlay-container {
+        display: none;
+      }
       .iframe {
         border-radius: 20px
       }

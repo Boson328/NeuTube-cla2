@@ -1,8 +1,8 @@
 import React from "react";
 
-import { SvgIcon } from "@mui/material";
-
 import type { SxProps, Theme } from "@mui/material";
+
+import { SvgIcon } from "@mui/material";
 
 export default function IconLogo({
   size = 40,

@@ -1,10 +1,10 @@
 import React from "react";
 
+import type { VideoInfo } from "@/utils/types";
+
 import { Avatar, Box } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-
-import type { VideoInfo } from "@/utils/types";
 
 export default function BlockVideo({
   info,

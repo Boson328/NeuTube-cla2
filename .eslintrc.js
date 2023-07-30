@@ -5,7 +5,7 @@ module.exports = {
     'import/order': [ //importの読み込み順のルール
       'error',
       {
-        groups: ['builtin','type', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
+        groups: ['builtin', 'type', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
         pathGroups: [
           {
             pattern: '{react,react-dom/**,react-router-dom}',

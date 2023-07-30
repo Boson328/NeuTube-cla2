@@ -1,7 +1,7 @@
-import { sql } from "@vercel/postgres";
-
 import type { VideoInfo } from "@/utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
+
+import { sql } from "@vercel/postgres";
 
 export default async function handler(
   request: NextApiRequest,

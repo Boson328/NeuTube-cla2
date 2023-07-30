@@ -1,5 +1,7 @@
 import React from "react";
 
+import type { Item } from "@/utils/types";
+
 import {
   Home,
   HomeOutlined,
@@ -11,8 +13,6 @@ import {
 import { Box } from "@mui/material";
 
 import BannerButtons from "../molecules/BannerButtons";
-
-import type { Item } from "@/utils/types";
 
 const iconSx = {
   height: "30px",

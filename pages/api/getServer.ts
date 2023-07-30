@@ -1,9 +1,8 @@
-import { db } from "@vercel/postgres";
-
 import type { VideoInfo } from "@/utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-// eslint-disable-next-line import/order
+import { db } from "@vercel/postgres";
+
 import { toVideo } from "@/utils/toVideo";
 
 export default async function handler(

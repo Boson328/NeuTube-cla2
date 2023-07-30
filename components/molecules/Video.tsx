@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import BlockVideo from "../atoms/BlockVideo";
-
 import type { VideoInfo } from "@/utils/types";
 
-// eslint-disable-next-line import/order
+import BlockVideo from "@/components/atoms/BlockVideo";
 import SkeletonVideo from "@/components/atoms/SkeletonVideo";
 
 export default function Video({ id }: { id: string }) {
@@ -23,5 +21,5 @@ export default function Video({ id }: { id: string }) {
     getInfo();
   }, []);
 
-  return <>{info ? <BlockVideo info={info} /> : <SkeletonVideo />}</>;
+  return info ? <BlockVideo info={info} /> : <SkeletonVideo />;
 }

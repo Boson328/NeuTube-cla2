@@ -13,9 +13,6 @@ export const theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: `
-      .iframe .ytp-pause-overlay-container {
-        display: none;
-      }
       .iframe {
         border-radius: 20px
       }
@@ -70,9 +67,13 @@ export const theme = createTheme({
     }
   },
   palette: {
+    error: {
+      main: "#F42A42"
+    },
     mode: "dark",
     primary: {
       dark: "#121212",
+      light: "#aaaaaa",
       main: "#ffffff"
     },
     secondary: {

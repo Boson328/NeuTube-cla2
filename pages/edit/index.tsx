@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
 
+import type { VideoInfo } from "@/utils/types";
+
 import { Box, Button, Input } from "@mui/material";
 
 import Heading from "@/components/templates/Heading";
-
-// eslint-disable-next-line import/order
-import type { VideoInfo } from "@/utils/types";
 
 export default function Edit() {
   const inputRef = useRef<HTMLInputElement>(null);

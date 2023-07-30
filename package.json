@@ -23,6 +23,8 @@
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-typescript-sort-keys": "^2.1.0",
     "eslint-plugin-unused-imports": "^2.0.0",
+    "higgsino": "^1.0.2",
+    "jotai": "^2.2.2",
     "next": "13.4.12",
     "nextjs-progressbar": "^0.0.16",
     "nprogress": "^0.2.0",

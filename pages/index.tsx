@@ -9,7 +9,7 @@ export default function Home({ videos }: { videos: string[] }) {
   return (
     <Box>
       <Heading />
-      <VideosList ids={["P_CSdxSGfaA"]} />
+      <VideosList ids={["P_CSdxSGfaA", "ZB75e7vzX0I", "U3zRlUaG-0w"]} />
     </Box>
   );
 }

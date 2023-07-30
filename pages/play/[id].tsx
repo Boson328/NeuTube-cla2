@@ -8,11 +8,13 @@ import { db } from "@vercel/postgres";
 
 import Player from "@/components/organisms/Player";
 import Typing from "@/components/organisms/Typing";
+import Heading from "@/components/templates/Heading";
 import { toVideo } from "@/utils/toVideo";
 
 export default function Play({ info }: { info: VideoInfo }) {
   return (
     <Box sx={{ padding: "20px" }}>
+      <Heading title={info.title} />
       <Player info={info} />
       <Typing />
     </Box>

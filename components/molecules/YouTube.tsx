@@ -22,7 +22,7 @@ export default function YouTube({ id }: { id: string }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((getCurrentTime() / getDuration()) * 100);
-    }, 1000);
+    }, 100);
     return () => {
       clearInterval(interval);
     };
@@ -35,12 +35,15 @@ export default function YouTube({ id }: { id: string }) {
         onReady={(event) => {
           youtubeRef.current = event;
         }}
-        opts={{ playerVars: { controls: 0 }, width: "100%" }}
+        opts={{
+          playerVars: { allowfullscreen: 0, controls: 0 },
+          width: "100%"
+        }}
         videoId={id}
       />
       <LinearProgress
         color="error"
-        sx={{ mt: "-10px", mx: "15px" }}
+        sx={{ height: "5px", mt: "-10px", mx: "15px" }}
         value={time}
         variant="determinate"
       />

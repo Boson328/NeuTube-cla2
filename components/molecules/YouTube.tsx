@@ -44,7 +44,7 @@ export default function YouTube({
 
   useEffect(() => {
     setVolume();
-  }, [settings]);
+  }, [settings.volume]);
 
   return (
     <>

@@ -1,8 +1,11 @@
 import type { Settings } from "./types";
 
 import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
 export const timeAtom = atom(0);
 export const wordIdxAtom = atom(-1);
-export const volumeAtom = atom(50);
-export const settingsAtom = atom<Settings>({ keyboard: 0, volume: 0 });
+export const settingsAtom = atomWithStorage<Settings>("settings", {
+  keyboard: 0,
+  volume: 50
+});

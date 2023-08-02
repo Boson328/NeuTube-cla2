@@ -11,7 +11,7 @@ export default function Player({ info }: { info: VideoInfo }) {
   return (
     <Box>
       <PlayerButtons info={info} />
-      <YouTube id={info.id} />
+      <YouTube id={info.id} words={info.words} />
     </Box>
   );
 }

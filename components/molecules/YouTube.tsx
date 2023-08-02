@@ -1,51 +1,75 @@
 import React, { useEffect, useRef } from "react";
 
+import type { WordsType } from "@/utils/types";
 import type { YouTubeEvent } from "react-youtube";
 
-import { LinearProgress } from "@mui/material";
 import { useAtom } from "jotai";
 import YouTubePlayer from "react-youtube";
 
-import { timeAtom } from "@/utils/atoms";
+import ProgressBar from "@/components/atoms/ProgressBar";
+import { timeAtom, volumeAtom, wordIdxAtom } from "@/utils/atoms";
 
-export default function YouTube({ id }: { id: string }) {
+export default function YouTube({
+  id,
+  words
+}: {
+  id: string;
+  words: WordsType;
+}) {
+  const [volume] = useAtom(volumeAtom);
   const [time, setTime] = useAtom(timeAtom);
-  const youtubeRef = useRef<YouTubeEvent<number>>();
+  const [wordIdx, setWordIdx] = useAtom(wordIdxAtom);
+  const youtubeRef = useRef<YouTubeEvent["target"]>();
 
   function getCurrentTime() {
-    return youtubeRef.current?.target.getCurrentTime();
+    return youtubeRef.current?.getCurrentTime();
   }
   function getDuration() {
-    return youtubeRef.current?.target.getDuration();
+    return youtubeRef.current?.getDuration();
+  }
+  function setVolume() {
+    return youtubeRef.current?.setVolume(volume);
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTime((getCurrentTime() / getDuration()) * 100);
+      const temp = getCurrentTime();
+      setTime(temp);
+      setWordIdx(words.findLastIndex((w) => w.start < temp));
     }, 100);
     return () => {
       clearInterval(interval);
     };
   }, []);
 
+  useEffect(() => {
+    setVolume();
+  }, [volume]);
+
   return (
     <>
+      {console.log(time)}
       <YouTubePlayer
         iframeClassName="iframe"
         onReady={(event) => {
-          youtubeRef.current = event;
+          youtubeRef.current = event.target;
         }}
         opts={{
+          height: "300px",
           playerVars: { allowfullscreen: 0, controls: 0 },
           width: "100%"
         }}
         videoId={id}
       />
-      <LinearProgress
-        color="error"
-        sx={{ height: "5px", mt: "-10px", mx: "15px" }}
-        value={time}
-        variant="determinate"
+      <ProgressBar
+        max={
+          words[wordIdx]
+            ? words[wordIdx + 1]
+              ? words[wordIdx + 1].start - words[wordIdx].start
+              : getDuration() - words[wordIdx].start
+            : words[wordIdx + 1].start
+        }
+        value={words[wordIdx] ? time - words[wordIdx].start : time}
       />
     </>
   );

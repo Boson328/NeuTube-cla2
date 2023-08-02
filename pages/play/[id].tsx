@@ -16,7 +16,7 @@ export default function Play({ info }: { info: VideoInfo }) {
     <Box sx={{ padding: "20px" }}>
       <Heading title={info.title} />
       <Player info={info} />
-      <Typing />
+      <Typing words={info.words} />
     </Box>
   );
 }

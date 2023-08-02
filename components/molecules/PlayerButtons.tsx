@@ -12,6 +12,7 @@ import { Box } from "@mui/material";
 
 import AccountIcon from "../atoms/AccountIcon";
 import PlayerButton from "../atoms/PlayerButton";
+import Volume from "../atoms/Volume";
 
 export default function PlayerButtons({ info }: { info: VideoInfo }) {
   return (
@@ -38,7 +39,8 @@ export default function PlayerButtons({ info }: { info: VideoInfo }) {
       >
         制作: @boson / {info.played} 回プレイ
       </Box>
-      <Box>
+      <Box sx={{ display: "flex" }}>
+        <Volume />
         <PlayerButton
           fill={<Flag />}
           onClick={() => {

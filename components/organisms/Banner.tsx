@@ -11,8 +11,9 @@ import {
   FavoriteBorder
 } from "@mui/icons-material";
 import { Box } from "@mui/material";
+import { usePathname } from "next/navigation";
 
-import BannerButtons from "../molecules/BannerButtons";
+import BannerButton from "@/components/molecules/BannerButton";
 
 const iconSx = {
   height: "30px",
@@ -40,6 +41,8 @@ const items: Item[] = [
   }
 ];
 export default function Banner() {
+  const pathname = usePathname();
+
   return (
     <Box
       sx={{
@@ -52,7 +55,15 @@ export default function Banner() {
         width: "140px"
       }}
     >
-      <BannerButtons items={items} />
+      {items.map(({ href, title, fill, outline }) => (
+        <BannerButton
+          href={href}
+          icon={pathname === href ? fill : outline}
+          isBold={Boolean(pathname === href)}
+          key={href + "bannerbutton"}
+          text={title}
+        />
+      ))}
     </Box>
   );
 }

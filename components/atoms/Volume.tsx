@@ -9,10 +9,10 @@ import {
 import { Box, Slider } from "@mui/material";
 import { useAtom } from "jotai";
 
-import { volumeAtom } from "@/utils/atoms";
+import { settingsAtom } from "@/utils/atoms";
 
 export default function Volume() {
-  const [volume, setVolume] = useAtom(volumeAtom);
+  const [settings, setSettings] = useAtom(settingsAtom);
   return (
     <Box
       sx={{
@@ -23,11 +23,11 @@ export default function Volume() {
         width: "150px"
       }}
     >
-      {volume === 0 ? (
+      {settings.volume === 0 ? (
         <VolumeOff sx={{ marginRight: "20px" }} />
-      ) : volume <= 33 ? (
+      ) : settings.volume <= 33 ? (
         <VolumeMute sx={{ marginRight: "20px" }} />
-      ) : volume <= 66 ? (
+      ) : settings.volume <= 66 ? (
         <VolumeDown sx={{ marginRight: "20px" }} />
       ) : (
         <VolumeUp sx={{ marginRight: "20px" }} />
@@ -36,10 +36,10 @@ export default function Volume() {
         aria-label="Volume"
         max={100}
         onChange={(e, v) => {
-          setVolume(v as number);
+          setSettings({ ...settings, volume: v as number });
         }}
         sx={{ marginRight: "20px" }}
-        value={volume}
+        value={settings.volume}
       />
     </Box>
   );

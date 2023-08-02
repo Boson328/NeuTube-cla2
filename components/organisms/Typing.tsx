@@ -15,7 +15,6 @@ const displayWordDefault = {
 };
 
 export default function Typing({ words }: { words: WordsType }) {
-  console.log(words);
   const [wordIdx] = useAtom(wordIdxAtom);
   const [displayWord, setDisplayWord] =
     useState<DisplayWordType>(displayWordDefault);

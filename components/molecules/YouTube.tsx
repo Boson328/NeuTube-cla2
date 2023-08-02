@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
 
-import type { WordsType } from "@/utils/types";
+import type { Settings, WordsType } from "@/utils/types";
 import type { YouTubeEvent } from "react-youtube";
 
 import { useAtom } from "jotai";
 import YouTubePlayer from "react-youtube";
 
 import ProgressBar from "@/components/atoms/ProgressBar";
-import { timeAtom, volumeAtom, wordIdxAtom } from "@/utils/atoms";
+import { settingsAtom, timeAtom, wordIdxAtom } from "@/utils/atoms";
 
 export default function YouTube({
   id,
@@ -16,7 +16,7 @@ export default function YouTube({
   id: string;
   words: WordsType;
 }) {
-  const [volume] = useAtom(volumeAtom);
+  const [settings] = useAtom<Settings>(settingsAtom);
   const [time, setTime] = useAtom(timeAtom);
   const [wordIdx, setWordIdx] = useAtom(wordIdxAtom);
   const youtubeRef = useRef<YouTubeEvent["target"]>();
@@ -28,7 +28,7 @@ export default function YouTube({
     return youtubeRef.current?.getDuration();
   }
   function setVolume() {
-    return youtubeRef.current?.setVolume(volume);
+    return youtubeRef.current?.setVolume(settings.volume);
   }
 
   useEffect(() => {
@@ -44,11 +44,10 @@ export default function YouTube({
 
   useEffect(() => {
     setVolume();
-  }, [volume]);
+  }, [settings]);
 
   return (
     <>
-      {console.log(time)}
       <YouTubePlayer
         iframeClassName="iframe"
         onReady={(event) => {

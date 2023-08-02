@@ -24,3 +24,8 @@ export type VideoInfo = {
   title: string;
   words: WordsType;
 };
+
+export type Settings = {
+  keyboard: number;
+  volume: number;
+};

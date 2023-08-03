@@ -33,12 +33,11 @@
     "react-dom": "18.2.0",
     "react-youtube": "^10.1.0",
     "swr": "^2.2.0",
-    "typescript": "5.1.6",
-    "youtube-player": "^5.6.0"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
     "@tsconfig/next": "^1.0.5",
-    "@types/youtube-player": "^5.5.7",
+    "@types/react-youtube": "^7.10.0",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "prettier": "^2.8.4"
   }

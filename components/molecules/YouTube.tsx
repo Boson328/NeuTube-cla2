@@ -20,23 +20,23 @@ export default function YouTube({
   const [time, setTime] = useAtom(timeAtom);
   const [wordIdx, setWordIdx] = useAtom(wordIdxAtom);
   const youtubeRef = useRef<YouTubeEvent["target"]>();
-  async function getCurrentTime() {
-    return (await youtubeRef.current?.getCurrentTime()) || 0;
+  function getCurrentTime() {
+    return youtubeRef.current?.getCurrentTime();
   }
-  async function getDuration() {
-    return (await youtubeRef.current?.getDuration()) || 0;
+  function getDuration() {
+    return youtubeRef.current?.getDuration();
   }
   function setVolume() {
     return youtubeRef.current?.setVolume(volume);
   }
   useEffect(() => {
-    const interval = setInterval(async () => {
-      const temp = await getCurrentTime();
+    const interval = setInterval(() => {
+      const temp = getCurrentTime();
       if (temp) {
         setTime(temp);
         setWordIdx(words.findLastIndex((w) => w.start <= temp));
       }
-    }, 100);
+    }, 25);
     return () => {
       clearInterval(interval);
     };
@@ -55,6 +55,9 @@ export default function YouTube({
           youtubeRef.current = event.target;
           setVolume();
         }}
+        onStateChange={() => {
+          focus();
+        }}
         opts={{
           height: "300px",
           playerVars: { controls: 0, rel: 1 },
@@ -66,7 +69,7 @@ export default function YouTube({
         max={
           words[wordIdx + 1]
             ? words[wordIdx + 1].start - words[wordIdx].start
-            : words[wordIdx].start
+            : getDuration() - words[wordIdx].start
         }
         value={time - words[wordIdx].start}
       />

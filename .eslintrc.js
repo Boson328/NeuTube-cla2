@@ -32,6 +32,7 @@ module.exports = {
     'sort-keys-fix/sort-keys-fix': 'error', // オブジェクトのキーをアルファベット順に自動でソート
     'typescript-sort-keys/interface': 'error', // TypeScriptのインターフェースのキーをアルファベット順に自動でソート
     'unused-imports/no-unused-imports': 'error', // 使っていないimportは削除
+    "react-hooks/exhaustive-deps": "off",
     // アロー関数のみ許容（お好みで）
     // 'react/function-component-definition': [
     //   2,

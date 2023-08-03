@@ -13,7 +13,7 @@ export default function Home() {
     return response.json();
   }
   const { data: videos } = useSWR("/api/getServer", fetcher);
-  console.log(videos);
+
   return (
     <Box>
       <Heading />
@@ -32,7 +32,6 @@ export default function Home() {
           </>
         )}
       </Box>
-      {/* <VideosList ids={["P_CSdxSGfaA", "ZB75e7vzX0I", "U3zRlUaG-0w"]} /> */}
     </Box>
   );
 }

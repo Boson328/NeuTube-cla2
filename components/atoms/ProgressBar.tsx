@@ -37,7 +37,7 @@ export default function ProgressBar({
         backgroundColor: "transparent",
         borderRadius: "50px",
         borderWidth: "0px",
-        bottom: "26px",
+        bottom: "20px",
         height: "6px",
         ml: "10px",
         outlineWidth: "0px",

@@ -42,15 +42,15 @@ export default function Typing({ words }: { words: WordsType }) {
     }
   }, [wordIdx]);
 
-  function keydown(event: KeyboardEvent) {
-    word.current.typed(event.key);
-    wordDisplay();
+  function keypress(event: KeyboardEvent) {
+    const result = word.current.typed(event.key);
+    if (!result.isMiss) wordDisplay();
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", keydown);
+    window.addEventListener("keypress", keypress);
     return () => {
-      window.removeEventListener("keydown", keydown);
+      window.removeEventListener("keypress", keypress);
     };
   }, []);
 

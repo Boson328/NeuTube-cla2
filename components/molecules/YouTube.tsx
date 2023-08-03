@@ -30,6 +30,8 @@ export default function YouTube({
     return youtubeRef.current?.setVolume(volume);
   }
   useEffect(() => {
+    setTime(0);
+    setWordIdx(0);
     const interval = setInterval(() => {
       const temp = getCurrentTime();
       if (temp) {
@@ -63,6 +65,7 @@ export default function YouTube({
           playerVars: { controls: 0, rel: 1 },
           width: "100%"
         }}
+        style={{ height: "300px", width: "100%" }}
         videoId={id}
       />
       <ProgressBar

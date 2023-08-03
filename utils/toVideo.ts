@@ -14,6 +14,13 @@ export function toVideo(value: any): VideoInfo {
     title: value.title,
     words: [
       {
+        start: 0,
+        word: {
+          example: "",
+          kana: ""
+        }
+      },
+      {
         start: 2,
         word: {
           example: "私が愛を語るのならその目には如何映る",

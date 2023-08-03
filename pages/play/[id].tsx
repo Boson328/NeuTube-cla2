@@ -4,7 +4,7 @@ import type { VideoInfo } from "@/utils/types";
 import type { GetServerSidePropsContext } from "next";
 
 import { Box } from "@mui/material";
-import { db } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 
 import Player from "@/components/organisms/Player";
 import Typing from "@/components/organisms/Typing";
@@ -29,8 +29,7 @@ export async function getServerSideProps({
       ? params?.id[0]
       : params?.id
     : "";
-  const client = await db.connect();
-  const result = await client.sql`SELECT * FROM videos WHERE id = ${id}`;
+  const result = await sql`SELECT * FROM videos WHERE id = ${id}`;
   const row = result.rows[0];
   const info: VideoInfo = toVideo(row);
 

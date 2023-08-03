@@ -7,9 +7,9 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  try {
-    const { method } = request;
-    if (method === "POST") {
+  const { method } = request;
+  if (method === "POST") {
+    try {
       const { id, title, channel, thumbnail }: VideoInfo = JSON.parse(
         request.body
       );
@@ -17,8 +17,8 @@ export default async function handler(
       const result =
         await sql`INSERT INTO videos (id, title, channel_id, channel_title, channel_icon, thumbnail, played, kps) VALUES (${id}, ${title}, ${channel.id}, ${channel.title}, ${channel.icon}, ${thumbnail}, 0, 0)`;
       return response.status(200).json(result);
+    } catch (error) {
+      return response.status(500).json({ error });
     }
-  } catch (error) {
-    return response.status(500).json({ error });
   }
 }

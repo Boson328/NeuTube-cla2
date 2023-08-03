@@ -34,7 +34,7 @@ export default function ProgressBar({
         },
         WebkitAppearance: "none",
         borderRadius: "50px",
-        bottom: "29px",
+        bottom: "20px",
         height: "6px",
         ml: "10px",
         position: "relative",

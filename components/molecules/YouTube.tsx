@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-import type { Settings, WordsType } from "@/utils/types";
+import type { WordsType } from "@/utils/types";
 import type { YouTubeEvent } from "react-youtube";
 
 import { useAtom } from "jotai";
@@ -16,26 +16,26 @@ export default function YouTube({
   id: string;
   words: WordsType;
 }) {
-  const [settings] = useAtom<Settings>(settingsAtom);
+  const [{ volume }] = useAtom(settingsAtom);
   const [time, setTime] = useAtom(timeAtom);
   const [wordIdx, setWordIdx] = useAtom(wordIdxAtom);
   const youtubeRef = useRef<YouTubeEvent["target"]>();
-
-  function getCurrentTime() {
-    return youtubeRef.current?.getCurrentTime();
+  async function getCurrentTime() {
+    return (await youtubeRef.current?.getCurrentTime()) || 0;
   }
-  function getDuration() {
-    return youtubeRef.current?.getDuration();
+  async function getDuration() {
+    return (await youtubeRef.current?.getDuration()) || 0;
   }
   function setVolume() {
-    return youtubeRef.current?.setVolume(settings.volume);
+    return youtubeRef.current?.setVolume(volume);
   }
-
   useEffect(() => {
-    const interval = setInterval(() => {
-      const temp = getCurrentTime();
-      setTime(temp);
-      setWordIdx(words.findLastIndex((w) => w.start < temp));
+    const interval = setInterval(async () => {
+      const temp = await getCurrentTime();
+      if (temp) {
+        setTime(temp);
+        setWordIdx(words.findLastIndex((w) => w.start <= temp));
+      }
     }, 100);
     return () => {
       clearInterval(interval);
@@ -44,31 +44,31 @@ export default function YouTube({
 
   useEffect(() => {
     setVolume();
-  }, [settings.volume]);
+  }, [volume]);
 
   return (
     <>
       <YouTubePlayer
+        id="iframe"
         iframeClassName="iframe"
         onReady={(event) => {
           youtubeRef.current = event.target;
+          setVolume();
         }}
         opts={{
           height: "300px",
-          playerVars: { allowfullscreen: 0, controls: 0 },
+          playerVars: { controls: 0, rel: 1 },
           width: "100%"
         }}
         videoId={id}
       />
       <ProgressBar
         max={
-          words[wordIdx]
-            ? words[wordIdx + 1]
-              ? words[wordIdx + 1].start - words[wordIdx].start
-              : getDuration() - words[wordIdx].start
-            : words[wordIdx + 1].start
+          words[wordIdx + 1]
+            ? words[wordIdx + 1].start - words[wordIdx].start
+            : words[wordIdx].start
         }
-        value={words[wordIdx] ? time - words[wordIdx].start : time}
+        value={time - words[wordIdx].start}
       />
     </>
   );

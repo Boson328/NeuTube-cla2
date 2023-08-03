@@ -16,6 +16,9 @@ export const theme = createTheme({
       .iframe {
         border-radius: 20px
       }
+      iframe .ytp-pause-overlay {
+        display: none
+      }
       ::-webkit-scrollbar {
         width: 18px;
       },

@@ -57,7 +57,7 @@ export default function Typing({ words }: { words: WordsType }) {
   return (
     <Box
       sx={{
-        backgroundColor: "#fff2",
+        backgroundColor: "#ffffff15",
         borderRadius: "20px",
         padding: "30px"
       }}

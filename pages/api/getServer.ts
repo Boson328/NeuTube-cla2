@@ -1,7 +1,7 @@
 import type { VideoInfo } from "@/utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { db } from "@vercel/postgres";
+import { sql } from "@vercel/postgres";
 
 import { toVideo } from "@/utils/toVideo";
 
@@ -11,15 +11,14 @@ export default async function handler(
 ) {
   try {
     const { method } = request;
-    const client = await db.connect();
     if (method === "POST") {
       const { id }: VideoInfo = JSON.parse(request.body);
-      const result = await client.sql`SELECT * FROM videos WHERE id = ${id}`;
+      const result = await sql`SELECT * FROM videos WHERE id = ${id}`;
       const row = result.rows[0];
       const video: VideoInfo = toVideo(row);
       return response.status(200).json(video);
     } else {
-      const result = await client.sql`SELECT * FROM videos`;
+      const result = await sql`SELECT * FROM videos`;
       const videos: VideoInfo[] = result.rows.map((row) => {
         return toVideo(row);
       });

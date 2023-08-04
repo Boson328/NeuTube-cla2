@@ -1,6 +1,6 @@
-import type { VideoInfo } from "./types";
+import type { VideoType } from "./types";
 
-export function toVideo(value: any): VideoInfo {
+export function toVideo(value: any): VideoType {
   return {
     channel: {
       icon: value.channel_icon,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import {
   VolumeDown,
@@ -6,39 +6,61 @@ import {
   VolumeOff,
   VolumeUp
 } from "@mui/icons-material";
-import { Box, Slider } from "@mui/material";
+import { Box, IconButton, Slider } from "@mui/material";
 import { useAtom } from "jotai";
 
 import { settingsAtom } from "@/utils/atoms";
 
 export default function Volume() {
   const [settings, setSettings] = useAtom(settingsAtom);
+  const previous = useRef<number>(settings.volume);
+  const volumeSx = { height: "20px", width: "20px" };
+
+  useEffect(() => {
+    if (settings.volume !== 0) previous.current = settings.volume;
+    else previous.current = 50;
+  }, []);
   return (
     <Box
       sx={{
         alignItems: "center",
         display: "flex",
         flexDirection: "row",
-        mb: 1,
         width: "150px"
       }}
     >
-      {settings.volume === 0 ? (
-        <VolumeOff sx={{ marginRight: "20px" }} />
-      ) : settings.volume <= 33 ? (
-        <VolumeMute sx={{ marginRight: "20px" }} />
-      ) : settings.volume <= 66 ? (
-        <VolumeDown sx={{ marginRight: "20px" }} />
-      ) : (
-        <VolumeUp sx={{ marginRight: "20px" }} />
-      )}
+      <IconButton
+        onClick={() => {
+          if (settings.volume === 0) {
+            setSettings({ ...settings, volume: previous.current });
+          } else {
+            setSettings({ ...settings, volume: 0 });
+          }
+          console.log(settings.volume);
+        }}
+        sx={{ height: "35px", width: "35px" }}
+      >
+        {settings.volume === 0 ? (
+          <VolumeOff sx={volumeSx} />
+        ) : settings.volume <= 33 ? (
+          <VolumeMute sx={volumeSx} />
+        ) : settings.volume <= 66 ? (
+          <VolumeDown sx={volumeSx} />
+        ) : (
+          <VolumeUp sx={volumeSx} />
+        )}
+      </IconButton>
       <Slider
         aria-label="Volume"
         max={100}
         onChange={(e, v) => {
           setSettings({ ...settings, volume: v as number });
         }}
-        sx={{ marginRight: "20px" }}
+        onChangeCommitted={(e, v) => {
+          if (v !== 0) previous.current = v as number;
+        }}
+        size="small"
+        sx={{ mx: "15px" }}
         value={settings.volume}
       />
     </Box>

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import type { WordsType } from "@/utils/types";
 import type { YouTubeEvent } from "react-youtube";
 
+import { Box } from "@mui/material";
 import { useAtom } from "jotai";
 import YouTubePlayer from "react-youtube";
 
@@ -49,7 +50,7 @@ export default function YouTube({
   }, [volume]);
 
   return (
-    <>
+    <Box sx={{ height: "200px", position: "relative", width: "100%" }}>
       <YouTubePlayer
         id="iframe"
         iframeClassName="iframe"
@@ -61,11 +62,10 @@ export default function YouTube({
           focus();
         }}
         opts={{
-          height: "300px",
+          height: "200px",
           playerVars: { controls: 0, rel: 1 },
           width: "100%"
         }}
-        style={{ height: "300px", width: "100%" }}
         videoId={id}
       />
       <ProgressBar
@@ -76,6 +76,6 @@ export default function YouTube({
         }
         value={time - words[wordIdx].start}
       />
-    </>
+    </Box>
   );
 }

@@ -37,11 +37,11 @@ export default function ProgressBar({
         backgroundColor: "transparent",
         borderRadius: "50px",
         borderWidth: "0px",
-        bottom: "20px",
+        bottom: "0",
         height: "6px",
         ml: "10px",
         outlineWidth: "0px",
-        position: "relative",
+        position: "absolute",
         width: "calc(100% - 20px)"
       }}
       value={value}

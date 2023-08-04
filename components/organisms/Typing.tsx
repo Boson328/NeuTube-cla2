@@ -42,15 +42,16 @@ export default function Typing({ words }: { words: WordsType }) {
     }
   }, [wordIdx]);
 
-  function keypress(event: KeyboardEvent) {
+  function keydown(event: KeyboardEvent) {
+    console.log(event);
     const result = word.current.typed(event.key);
     if (!result.isMiss) wordDisplay();
   }
 
   useEffect(() => {
-    window.addEventListener("keypress", keypress);
+    window.addEventListener("keydown", keydown);
     return () => {
-      window.removeEventListener("keypress", keypress);
+      window.removeEventListener("keydown", keydown);
     };
   }, []);
 
@@ -59,16 +60,18 @@ export default function Typing({ words }: { words: WordsType }) {
       sx={{
         backgroundColor: "#ffffff15",
         borderRadius: "20px",
-        padding: "30px"
+        letterSpacing: "0.8px",
+        my: "20px",
+        padding: "25px 30px"
       }}
     >
       <Box
         component="h2"
-        sx={{ fontSize: "22px", height: "40px", margin: "0px" }}
+        sx={{ fontSize: "20px", height: "20px", margin: "0px" }}
       >
         {displayWord.example}
       </Box>
-      <Box component="h4" sx={{ fontSize: "15px", height: "13px" }}>
+      <Box component="h4" sx={{ fontSize: "15px", height: "10px" }}>
         <Box component="span" sx={{ color: "gray" }}>
           {displayWord.typed}
         </Box>

@@ -12,8 +12,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme}>
         <Analytics />
-        <NextNProgress color="#888" options={{ showSpinner: false }} />
         <CssBaseline />
+        <NextNProgress color="#888" options={{ showSpinner: false }} />
         <Main>
           <Component {...pageProps} />
         </Main>

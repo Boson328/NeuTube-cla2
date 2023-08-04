@@ -1,4 +1,4 @@
-import type { VideoInfo } from "@/utils/types";
+import type { VideoType } from "@/utils/types";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { sql } from "@vercel/postgres";
@@ -10,7 +10,7 @@ export default async function handler(
   const { method } = request;
   if (method === "POST") {
     try {
-      const { id, title, channel, thumbnail }: VideoInfo = JSON.parse(
+      const { id, title, channel, thumbnail }: VideoType = JSON.parse(
         request.body
       );
       await sql`DELETE FROM videos WHERE id = ${id}`;

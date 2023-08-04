@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { VideoInfo } from "@/utils/types";
+import type { VideoType } from "@/utils/types";
 
 import {
   Favorite,
@@ -8,13 +8,14 @@ import {
   Flag,
   FlagOutlined
 } from "@mui/icons-material";
-import { Box } from "@mui/material";
+import { Avatar, Box } from "@mui/material";
+import Link from "next/link";
 
-import AccountIcon from "../atoms/AccountIcon";
+import A from "../atoms/A";
 import PlayerButton from "../atoms/PlayerButton";
 import Volume from "../atoms/Volume";
 
-export default function PlayerButtons({ info }: { info: VideoInfo }) {
+export default function PlayerButtons({ info }: { info: VideoType }) {
   return (
     <Box
       sx={{
@@ -23,23 +24,46 @@ export default function PlayerButtons({ info }: { info: VideoInfo }) {
         position: "relative"
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <AccountIcon m={10} src={info.channel.icon} />
-        <Box component="h3">{info.channel.title}</Box>
-      </Box>
+      <Link
+        href={"/channel/" + info.channel.id}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          textDecoration: "none"
+        }}
+      >
+        <Avatar
+          src={info.channel.icon}
+          sx={{ height: "35px", m: "10px", width: "35px" }}
+        />
+        <Box
+          component="h3"
+          sx={{
+            color: "primary.main",
+            fontSize: "16px",
+            height: "20px",
+            lineHeight: "20px"
+          }}
+        >
+          {info.channel.title}
+        </Box>
+      </Link>
       <Box
         component="h4"
         sx={{
           color: "gray",
+          fontSize: "15px",
           fontWeight: "500",
+          height: "20px",
+          lineHeight: "20px",
           ml: "50%",
           position: "absolute",
           transform: "translateX(-50%)"
         }}
       >
-        制作: @boson / {info.played} 回プレイ
+        制作: <A href="/user/boson">@boson</A> / {info.played} 回プレイ
       </Box>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", mb: "4px" }}>
         <Volume />
         <PlayerButton
           fill={<Flag />}
@@ -47,6 +71,7 @@ export default function PlayerButtons({ info }: { info: VideoInfo }) {
             console.log("click");
           }}
           outline={<FlagOutlined />}
+          size={45}
         />
         <PlayerButton
           fill={<Favorite />}
@@ -55,6 +80,7 @@ export default function PlayerButtons({ info }: { info: VideoInfo }) {
             console.log("click");
           }}
           outline={<FavoriteBorder />}
+          size={45}
         />
       </Box>
     </Box>

@@ -19,7 +19,14 @@ export default function AccountIcon({
         width: size + "px"
       }}
     >
-      <Avatar src={src} sx={{ bgcolor: "primary.main" }} />
+      <Avatar
+        src={src}
+        sx={{
+          bgcolor: "primary.main",
+          height: size - 10 + "px",
+          width: size - 10 + "px"
+        }}
+      />
     </IconButton>
   );
 }

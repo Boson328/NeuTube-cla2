@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import type { VideoInfo } from "@/utils/types";
+import type { VideoType } from "@/utils/types";
 
 import { Box, Button, Input } from "@mui/material";
 
@@ -15,7 +15,7 @@ export default function Edit() {
         body: JSON.stringify({ id: inputRef.current?.value }),
         method: "POST"
       });
-      const ytVideo: any = (await ytRes.json()) as VideoInfo;
+      const ytVideo: any = (await ytRes.json()) as VideoType;
 
       await fetch("/api/insertServer", {
         body: JSON.stringify({ ...ytVideo }),

@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { VideoInfo } from "@/utils/types";
+import type { VideoType } from "@/utils/types";
 
 import { Avatar, Box } from "@mui/material";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default function BlockVideo({
   info,
   width = 300
 }: {
-  info: VideoInfo;
+  info: VideoType;
   width?: number;
 }) {
   // 横 / 縦

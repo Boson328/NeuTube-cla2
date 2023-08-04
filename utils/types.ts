@@ -1,4 +1,4 @@
-export type Item = {
+export type ItemType = {
   fill: JSX.Element;
   href: string;
   outline: JSX.Element;
@@ -15,7 +15,7 @@ export type DisplayWordType = {
   untyped: string;
 };
 
-export type VideoInfo = {
+export type VideoType = {
   channel: { icon: string; id: string; title: string };
   id: string;
   kps: number;
@@ -25,7 +25,16 @@ export type VideoInfo = {
   words: WordsType;
 };
 
-export type Settings = {
+export type SettingsType = {
   keyboard: number;
   volume: number;
 };
+
+export type KeyType = {
+  code: string;
+  length?: number;
+  name: string;
+  shift: string;
+};
+
+export type KeyboardType = KeyType[][];

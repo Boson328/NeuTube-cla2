@@ -1,22 +1,20 @@
-export const usKeys: {
-  [key: string]: { code: string; length?: number; name: string; shift: string };
-} = {
-  AltLeft: { code: "AltLeft", name: "Alt", shift: "Alt" },
-  AltRight: { code: "AltRight", name: "Alt", shift: "Alt" },
-  ArrowDown: { code: "ArrowDown", name: "Arrow Down", shift: "Arrow Down" },
-  ArrowLeft: { code: "ArrowLeft", name: "Arrow Left", shift: "Arrow Left" },
-  ArrowRight: { code: "ArrowRight", name: "Arrow Right", shift: "Arrow Right" },
-  ArrowUp: { code: "ArrowUp", name: "Arrow Up", shift: "Arrow Up" },
+import type { KeyType } from "./types";
+
+const long = 45;
+
+export const usKeys: { [key: string]: KeyType } = {
+  AltLeft: { code: "AltLeft", length: long, name: "", shift: "" },
+  AltRight: { code: "AltRight", length: long, name: "", shift: "" },
   Backquote: { code: "Backquote", name: "`", shift: "~" },
-  Backslash: { code: "Backslash", name: "\\", shift: "|" },
+  Backslash: { code: "Backslash", length: 55, name: "\\", shift: "|" },
   Backspace: { code: "Backspace", name: "Backspace", shift: "Backspace" },
   BracketLeft: { code: "BracketLeft", name: "[", shift: "{" },
   BracketRight: { code: "BracketRight", name: "]", shift: "}" },
-  CapsLock: { code: "CapsLock", name: "Caps Lock", shift: "Caps Lock" },
+  CapsLock: { code: "CapsLock", length: 75, name: "", shift: "" },
   Comma: { code: "Comma", name: ",", shift: "<" },
-  ControlLeft: { code: "ControlLeft", name: "Control", shift: "Control" },
-  ControlRight: { code: "ControlRight", name: "Control", shift: "Control" },
-  Delete: { code: "Delete", name: "Delete", shift: "Delete" },
+  ControlLeft: { code: "ControlLeft", length: long, name: "", shift: "" },
+  ControlRight: { code: "ControlRight", length: long, name: "", shift: "" },
+  Delete: { code: "Delete", length: 85, name: "", shift: "" },
   Digit0: { code: "Digit0", name: "0", shift: ")" },
   Digit1: { code: "Digit1", name: "1", shift: "!" },
   Digit2: { code: "Digit2", name: "2", shift: "@" },
@@ -27,10 +25,9 @@ export const usKeys: {
   Digit7: { code: "Digit7", name: "7", shift: "&" },
   Digit8: { code: "Digit8", name: "8", shift: "*" },
   Digit9: { code: "Digit9", name: "9", shift: "(" },
-  End: { code: "End", name: "End", shift: "End" },
-  Enter: { code: "Enter", name: "Enter", shift: "Enter" },
+  Enter: { code: "Enter", length: 80, name: "Enter", shift: "Enter" },
   Equal: { code: "Equal", name: "=", shift: "+" },
-  Escape: { code: "Escape", name: "Escape", shift: "Escape" },
+  Escape: { code: "Escape", name: "es", shift: "es" },
   F1: { code: "F1", name: "F1", shift: "F1" },
   F10: { code: "F10", name: "F10", shift: "F10" },
   F11: { code: "F11", name: "F11", shift: "F11" },
@@ -43,9 +40,7 @@ export const usKeys: {
   F7: { code: "F7", name: "F7", shift: "F7" },
   F8: { code: "F8", name: "F8", shift: "F8" },
   F9: { code: "F9", name: "F9", shift: "F9" },
-  Fn: { code: "Fn", name: "Fn", shift: "Fn" },
-  Home: { code: "Home", name: "Home", shift: "Home" },
-  Insert: { code: "Insert", name: "Insert", shift: "Insert" },
+  Fn: { code: "Fn", length: long, name: "", shift: "" },
   Key0: { code: "Key0", name: "0", shift: ")" },
   Key1: { code: "Key1", name: "1", shift: "!" },
   Key2: { code: "Key2", name: "2", shift: "@" },
@@ -82,23 +77,35 @@ export const usKeys: {
   KeyX: { code: "KeyX", name: "x", shift: "X" },
   KeyY: { code: "KeyY", name: "y", shift: "Y" },
   KeyZ: { code: "KeyZ", name: "z", shift: "Z" },
-  Meta: { code: "Meta", name: "", shift: "" },
+  MetaLeft: { code: "MetaLeft", length: long, name: "", shift: "" },
+  MetaRight: { code: "MetaRight", length: long, name: "", shift: "" },
   Minus: { code: "Minus", name: "-", shift: "_" },
-  PageDown: { code: "PageDown", name: "Page Down", shift: "Page Down" },
-  PageUp: { code: "PageUp", name: "Page Up", shift: "Page Up" },
-  Pause: { code: "Pause", name: "Pause", shift: "Pause" },
   Period: { code: "Period", name: ".", shift: ">" },
-  PrintScreen: {
-    code: "PrintScreen",
-    name: "Print Screen",
-    shift: "Print Screen"
-  },
   Quote: { code: "Quote", name: "'", shift: '"' },
   ScrollLock: { code: "ScrollLock", name: "Scroll Lock", shift: "Scroll Lock" },
   Semicolon: { code: "Semicolon", name: ";", shift: ":" },
-  ShiftLeft: { code: "ShiftLeft", name: "Shift", shift: "Shift" },
-  ShiftRight: { code: "ShiftRight", name: "Shift", shift: "Shift" },
+  ShiftLeft: { code: "ShiftLeft", length: 95, name: "Shift", shift: "Shift" },
+  ShiftRight: {
+    code: "ShiftRight",
+    length: 100,
+    name: "Shift",
+    shift: "Shift"
+  },
   Slash: { code: "Slash", name: "/", shift: "?" },
-  Space: { code: "Space", name: "Space", shift: "Space" },
-  Tab: { code: "Tab", name: "Tab", shift: "Tab" }
+  Space: { code: "Space", length: 220, name: "", shift: "" },
+  Tab: { code: "Tab", length: 60, name: "", shift: "" }
+};
+
+export const jisKeys: { [key: string]: KeyType } = {
+  ArrowDown: { code: "ArrowDown", name: "Arrow Down", shift: "Arrow Down" },
+  ArrowLeft: { code: "ArrowLeft", name: "Arrow Left", shift: "Arrow Left" },
+  ArrowRight: { code: "ArrowRight", name: "Arrow Right", shift: "Arrow Right" },
+  ArrowUp: { code: "ArrowUp", name: "Arrow Up", shift: "Arrow Up" },
+  Backslash: { code: "Backslash", name: "\\", shift: "_" },
+  Digit0: { code: "Digit0", name: "0", shift: "0" },
+  Digit2: { code: "Digit2", name: "2", shift: '"' },
+  Digit6: { code: "Digit6", name: "6", shift: "&" },
+  Digit7: { code: "Digit7", name: "7", shift: "'" },
+  Digit8: { code: "Digit8", name: "8", shift: "(" },
+  Digit9: { code: "Digit9", name: "9", shift: ")" }
 };

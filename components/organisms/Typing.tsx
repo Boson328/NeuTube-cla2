@@ -18,6 +18,7 @@ export default function Typing({ words }: { words: WordsType }) {
   const [wordIdx] = useAtom(wordIdxAtom);
   const [displayWord, setDisplayWord] =
     useState<DisplayWordType>(displayWordDefault);
+  const [isFinish, setIsFinish] = useState<boolean>(false);
   const word = useRef<Word>(new Word("", ""));
 
   function wordDisplay() {
@@ -42,16 +43,16 @@ export default function Typing({ words }: { words: WordsType }) {
     }
   }, [wordIdx]);
 
-  function keydown(event: KeyboardEvent) {
-    console.log(event);
+  function keypress(event: KeyboardEvent) {
     const result = word.current.typed(event.key);
     if (!result.isMiss) wordDisplay();
+    if (result.isFinish) setIsFinish(true);
   }
 
   useEffect(() => {
-    window.addEventListener("keydown", keydown);
+    window.addEventListener("keypress", keypress);
     return () => {
-      window.removeEventListener("keydown", keydown);
+      window.removeEventListener("keypress", keypress);
     };
   }, []);
 
@@ -60,6 +61,7 @@ export default function Typing({ words }: { words: WordsType }) {
       sx={{
         backgroundColor: "#ffffff15",
         borderRadius: "20px",
+        height: "150px",
         letterSpacing: "0.8px",
         my: "20px",
         padding: "25px 30px"
@@ -67,15 +69,31 @@ export default function Typing({ words }: { words: WordsType }) {
     >
       <Box
         component="h2"
-        sx={{ fontSize: "20px", height: "20px", margin: "0px" }}
+        sx={{
+          color: isFinish ? "gray" : "primary.main",
+          fontSize: "20px",
+          height: "40px",
+          margin: "0px"
+        }}
       >
         {displayWord.example}
       </Box>
-      <Box component="h4" sx={{ fontSize: "15px", height: "10px" }}>
+      <Box component="h4" sx={{ fontSize: "15px", height: "40px", m: "0px" }}>
         <Box component="span" sx={{ color: "gray" }}>
           {displayWord.typed}
         </Box>
         <Box component="span">{displayWord.untyped}</Box>
+      </Box>
+      <Box
+        component="h3"
+        sx={{
+          color: "#fff7",
+          fontSize: "13px",
+          height: "13px",
+          m: "0"
+        }}
+      >
+        {words[wordIdx + 1] ? words[wordIdx + 1].word.example : "終了"}
       </Box>
     </Box>
   );

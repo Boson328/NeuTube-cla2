@@ -3,9 +3,10 @@ import React from "react";
 import type { VideoType } from "@/utils/types";
 import type { GetServerSidePropsContext } from "next";
 
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { sql } from "@vercel/postgres";
 
+import TypeInfo from "@/components/molecules/TypeInfo";
 import Keyboard from "@/components/organisms/Keyboard";
 import Player from "@/components/organisms/Player";
 import Typing from "@/components/organisms/Typing";
@@ -19,7 +20,23 @@ export default function Play({ info }: { info: VideoType }) {
       <Heading title={info.title} />
       <Player info={info} />
       <Typing words={info.words} />
-      <Keyboard keyboard={usKeyboard} />
+      <Grid container direction="row" justifyContent="space-between">
+        <TypeInfo
+          accuracy={0}
+          kps={0}
+          missed={0}
+          ranking={0}
+          title={"@boson"}
+        />
+        <Keyboard keyboard={usKeyboard} />
+        <TypeInfo
+          accuracy={0}
+          kps={0}
+          missed={0}
+          ranking={0}
+          title={"@boson"}
+        />
+      </Grid>
     </Box>
   );
 }

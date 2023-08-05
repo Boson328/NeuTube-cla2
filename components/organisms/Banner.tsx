@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { Item } from "@/utils/types";
+import type { ItemType } from "@/utils/types";
 
 import {
   Home,
@@ -20,7 +20,7 @@ const iconSx = {
   width: "30px"
 };
 
-const items: Item[] = [
+const items: ItemType[] = [
   {
     fill: <Home sx={iconSx} />,
     href: "/",

@@ -1,5 +1,7 @@
 import React from "react";
 
+import type { VideoType } from "@/utils/types";
+
 import { Box } from "@mui/material";
 import useSWR from "swr";
 
@@ -8,7 +10,7 @@ import SkeletonVideo from "@/components/atoms/SkeletonVideo";
 import Heading from "@/components/templates/Heading";
 
 export default function Home() {
-  async function fetcher(url: string): Promise<boolean | null> {
+  async function fetcher(url: string): Promise<VideoType[] | null> {
     const response = await fetch(url);
     return response.json();
   }
@@ -19,7 +21,7 @@ export default function Home() {
       <Heading />
       <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {videos && Array.isArray(videos) ? (
-          videos.map((video: any) => <BlockVideo info={video} key={video.id} />)
+          videos.map((video) => <BlockVideo info={video} key={video.id} />)
         ) : (
           <>
             <SkeletonVideo />

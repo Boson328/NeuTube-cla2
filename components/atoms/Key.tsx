@@ -13,8 +13,11 @@ export default function Key({
     <Grid
       item
       sx={{
-        height: "35px",
-        lineHeight: "35px",
+        backgroundColor: "#ffffff10",
+        borderRadius: "7px",
+        height: "30px",
+        lineHeight: "30px",
+        margin: "5px",
         textAlign: "center",
         width: length + "px"
       }}

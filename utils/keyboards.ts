@@ -17,7 +17,7 @@ export const usKeyboard: KeyboardType = [
     usKeys.Key0,
     usKeys.Minus,
     usKeys.Equal,
-    usKeys.Backspace
+    usKeys.Delete
   ],
   [
     usKeys.Tab,
@@ -33,8 +33,81 @@ export const usKeyboard: KeyboardType = [
     usKeys.KeyP,
     usKeys.BracketLeft,
     usKeys.BracketRight,
-    usKeys.Backslash,
-    usKeys.Delete
+    usKeys.Backslash
+  ],
+  [
+    usKeys.CapsLock,
+    usKeys.KeyA,
+    usKeys.KeyS,
+    usKeys.KeyD,
+    usKeys.KeyF,
+    usKeys.KeyG,
+    usKeys.KeyH,
+    usKeys.KeyJ,
+    usKeys.KeyK,
+    usKeys.KeyL,
+    usKeys.Semicolon,
+    usKeys.Quote,
+    usKeys.Enter
+  ],
+  [
+    usKeys.ShiftLeft,
+    usKeys.KeyZ,
+    usKeys.KeyX,
+    usKeys.KeyC,
+    usKeys.KeyV,
+    usKeys.KeyB,
+    usKeys.KeyN,
+    usKeys.KeyM,
+    usKeys.Comma,
+    usKeys.Period,
+    usKeys.Slash,
+    usKeys.ShiftRight
+  ],
+  [
+    usKeys.ControlLeft,
+    usKeys.MetaLeft,
+    usKeys.AltLeft,
+    usKeys.Space,
+    usKeys.AltRight,
+    usKeys.MetaRight,
+    usKeys.Fn,
+    usKeys.ControlRight
+  ]
+];
+
+export const jisKeyboard: KeyboardType = [
+  [
+    usKeys.Escape,
+    usKeys.Key1,
+    usKeys.Key2,
+    usKeys.Key3,
+    usKeys.Key4,
+    usKeys.Key5,
+    usKeys.Key6,
+    usKeys.Key7,
+    usKeys.Key8,
+    usKeys.Key9,
+    usKeys.Key0,
+    usKeys.Minus,
+    usKeys.Equal,
+    usKeys.Backspace
+  ],
+  [
+    usKeys.Tab,
+    usKeys.KeyQ,
+    usKeys.KeyW,
+    usKeys.KeyE,
+    usKeys.KeyR,
+    usKeys.KeyT,
+    usKeys.KeyY,
+    usKeys.KeyU,
+    usKeys.KeyI,
+    usKeys.KeyO,
+    usKeys.KeyP,
+    usKeys.Backquote,
+    usKeys.BracketLeft,
+    usKeys.Enter
   ],
   [
     usKeys.CapsLock,

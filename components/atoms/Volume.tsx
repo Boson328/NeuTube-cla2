@@ -17,8 +17,8 @@ export default function Volume() {
   const volumeSx = { height: "20px", width: "20px" };
 
   useEffect(() => {
-    if (settings.volume !== 0) previous.current = settings.volume;
-    else previous.current = 50;
+    if (settings.volume === 0) previous.current = 50;
+    else previous.current = settings.volume;
   }, []);
   return (
     <Box
@@ -31,12 +31,9 @@ export default function Volume() {
     >
       <IconButton
         onClick={() => {
-          if (settings.volume === 0) {
+          if (settings.volume === 0)
             setSettings({ ...settings, volume: previous.current });
-          } else {
-            setSettings({ ...settings, volume: 0 });
-          }
-          console.log(settings.volume);
+          else setSettings({ ...settings, volume: 0 });
         }}
         sx={{ height: "35px", width: "35px" }}
       >

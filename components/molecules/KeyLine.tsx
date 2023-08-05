@@ -8,9 +8,9 @@ import Key from "../atoms/Key";
 
 export default function KeyLine({ keyline }: { keyline: KeyType[] }) {
   return (
-    <Grid container direction="row">
+    <Grid container direction="row" wrap="nowrap">
       {keyline.map(({ code, name, length }) => (
-        <Key key={code} length={length || 35} name={name} />
+        <Key key={code} length={length || 30} name={name} />
       ))}
     </Grid>
   );

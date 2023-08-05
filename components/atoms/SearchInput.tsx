@@ -43,8 +43,8 @@ export default function SearchInput({
         placeholder="検索"
         sx={{
           color: "white",
-          fontSize: "16px",
-          margin: "5px 5px 5px 20px",
+          fontSize: "14px",
+          margin: "4px 4px 4px 18px",
           padding: "0px",
           width: "100%"
         }}

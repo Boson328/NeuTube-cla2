@@ -54,13 +54,13 @@ export default function BlockVideo({
                 WebkitBoxOrient: "vertical",
                 WebkitLineClamp: "2",
                 display: "-webkit-box",
-                fontSize: "15px",
+                fontSize: `${width / 20}px`,
                 fontWeight: "600",
                 margin: "0 0 4px 0",
-                maxHeight: width / 4.8 + "px",
-                maxWidth: width - avatarSize - width / 15 + "px",
+                maxHeight: `${width / 4.8}px`,
                 overflow: "hidden",
-                textOverflow: "ellipsis"
+                textOverflow: "ellipsis",
+                width: `${width - avatarSize - width / 30}px`
               }}
             >
               {info.title}
@@ -69,23 +69,27 @@ export default function BlockVideo({
               component="p"
               sx={{
                 color: "#aaaaaa",
-                fontSize: "12px",
+                fontSize: `${width / 40}px`,
                 fontWeight: "400",
                 margin: "2px 0",
-                maxHeight: width / 10 + "px",
-                maxWidth: width - avatarSize - width / 15 + "px",
+                maxHeight: `${width / 10}px`,
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                whiteSpace: "nowrap"
+                whiteSpace: "nowrap",
+                width: `${width - avatarSize - width / 30}px`
               }}
             >
               {info.channel.title}
             </Box>
             <Box
               component="p"
-              sx={{ color: "#aaaaaa", fontSize: "11px", margin: "0" }}
+              sx={{
+                color: "#aaaaaa",
+                fontSize: `${width / 40}px`,
+                margin: "0"
+              }}
             >
-              {info.played + "プレイ・" + info.kps + "/秒"}
+              {`${info.played} プレイ・${info.kps} /秒`}
             </Box>
           </Box>
         </Box>

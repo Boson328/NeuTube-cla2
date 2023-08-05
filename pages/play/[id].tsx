@@ -13,8 +13,10 @@ import Typing from "@/components/organisms/Typing";
 import Heading from "@/components/templates/Heading";
 import { usKeyboard } from "@/utils/keyboards";
 import { toVideo } from "@/utils/toVideo";
+import { StrToRoman } from "@/utils/typing";
 
 export default function Play({ info }: { info: VideoType }) {
+  StrToRoman("aa");
   return (
     <Box sx={{ padding: "20px 40px" }}>
       <Heading title={info.title} />

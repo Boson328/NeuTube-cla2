@@ -3,7 +3,7 @@ import React from "react";
 import { IconButton } from "@mui/material";
 
 export default function PlayerButton({
-  m = 10,
+  m = "10px",
   size = 50,
   onClick,
   isFill = false,
@@ -12,7 +12,7 @@ export default function PlayerButton({
 }: {
   fill: JSX.Element;
   isFill?: boolean;
-  m?: number;
+  m?: string;
   onClick: () => void;
   outline: JSX.Element;
   size?: number;
@@ -27,7 +27,7 @@ export default function PlayerButton({
         bgcolor: "#fff2",
         color: isFill ? "#F42A42" : "primary.main",
         height: size - 3 + "px",
-        m: m + "px",
+        m: m,
         width: size - 3 + "px"
       }}
     >

@@ -9,27 +9,30 @@ export default function TypeInfo({
   kps,
   accuracy,
   ranking,
-  missed
+  missed,
+  size = 220
 }: {
   accuracy: number;
   kps: number;
   missed: number;
   ranking: number | "圏外";
+  size: number;
   title: string;
 }) {
   return (
     <Box
       sx={{
         background: "#ffffff10",
-        borderRadius: "20px",
+        borderRadius: "18px",
+        height: "170px",
         my: "5px",
-        padding: "20px",
-        width: "273px"
+        padding: `${size / 12}px`,
+        width: `${size}px`
       }}
     >
       <Box
         sx={{
-          fontSize: "19px",
+          fontSize: `${size / 13}px`,
           fontWeight: "bold",
           mb: "10px",
           textAlign: "center"

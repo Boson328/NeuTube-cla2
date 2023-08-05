@@ -26,7 +26,7 @@ export default function Volume() {
         alignItems: "center",
         display: "flex",
         flexDirection: "row",
-        width: "150px"
+        width: "130px"
       }}
     >
       <IconButton
@@ -35,7 +35,7 @@ export default function Volume() {
             setSettings({ ...settings, volume: previous.current });
           else setSettings({ ...settings, volume: 0 });
         }}
-        sx={{ height: "35px", width: "35px" }}
+        sx={{ height: "30px", width: "30px" }}
       >
         {settings.volume === 0 ? (
           <VolumeOff sx={volumeSx} />

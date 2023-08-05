@@ -15,13 +15,13 @@ export default function Logo() {
           color: "primary.main",
           cursor: "pointer",
           display: "flex",
-          m: "32px",
-          width: { lg: "200px", xs: "80px" }
+          m: "28px",
+          width: { lg: "180px", xs: "68px" }
         }}
       >
         <BannerMenu />
-        <IconLogo size={37} sx={{ display: { lg: "none", xs: "block" } }} />
-        <AllLogo size={37} sx={{ display: { lg: "block", xs: "none" } }} />
+        <IconLogo size={33} sx={{ display: { lg: "none", xs: "block" } }} />
+        <AllLogo size={33} sx={{ display: { lg: "block", xs: "none" } }} />
       </Box>
     </Link>
   );

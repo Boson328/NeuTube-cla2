@@ -50,9 +50,9 @@ export default function Banner() {
         flexDirection: "column",
         height: "75%",
         left: "0px",
-        marginTop: "10px",
+        marginTop: "8px",
         position: "absolute",
-        width: "140px"
+        width: "130px"
       }}
     >
       {items.map(({ href, title, fill, outline }) => (
@@ -61,6 +61,7 @@ export default function Banner() {
           icon={pathname === href ? fill : outline}
           isBold={Boolean(pathname === href)}
           key={href + "bannerbutton"}
+          size={190}
           text={title}
         />
       ))}

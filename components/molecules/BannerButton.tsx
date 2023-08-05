@@ -12,11 +12,13 @@ export default function BannerButton({
   href,
   icon,
   text,
-  isBold
+  isBold,
+  size = 220
 }: {
   href: string;
   icon: JSX.Element;
   isBold: boolean;
+  size?: number;
   text: string;
 }) {
   return (
@@ -30,14 +32,14 @@ export default function BannerButton({
           borderRadius: "50px",
           color: isBold ? "primary.main" : "gray",
           display: { xl: "flex", xs: "none" },
-          fontSize: "18px",
-          height: "70px",
+          fontSize: `${size / 12}px`,
+          height: `${size / 3}px`,
           justifyContent: "left",
-          margin: "20px",
-          paddingLeft: "30px",
-          paddingRight: "30px",
+          margin: `${size / 11}px`,
+          paddingLeft: `${size / 6}px`,
+          paddingRight: `${size / 6}px`,
           textAlign: "left",
-          width: "220px"
+          width: `${size}px`
         }}
       >
         <Typography

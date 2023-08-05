@@ -7,12 +7,12 @@ export default function Body({ children }: { children: React.ReactNode }) {
     <Box
       sx={{
         bgcolor: "secondary.main",
-        borderRadius: "20px",
-        height: "calc(100% - 40px)",
+        borderRadius: "18px",
+        height: "calc(100% - 30px)",
         marginLeft: { lg: "140px", xs: "20px" },
         marginRight: { lg: "50px", xs: "20px" },
         marginTop: "10px",
-        maxWidth: "1300px",
+        maxWidth: "1120px",
         overflowX: "hidden",
         overflowY: "scroll",
         position: "relative",

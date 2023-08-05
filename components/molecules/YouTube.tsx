@@ -50,7 +50,7 @@ export default function YouTube({
   }, [volume]);
 
   return (
-    <Box sx={{ height: "240px", position: "relative", width: "100%" }}>
+    <Box sx={{ height: "210px", position: "relative", width: "100%" }}>
       <YouTubePlayer
         id="iframe"
         iframeClassName="iframe"
@@ -62,7 +62,7 @@ export default function YouTube({
           focus();
         }}
         opts={{
-          height: "240px",
+          height: "210px",
           playerVars: { controls: 0, rel: 1 },
           width: "100%"
         }}

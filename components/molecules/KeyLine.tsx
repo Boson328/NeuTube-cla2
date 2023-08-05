@@ -10,7 +10,7 @@ export default function KeyLine({ keyline }: { keyline: KeyType[] }) {
   return (
     <Grid container direction="row" wrap="nowrap">
       {keyline.map(({ code, name, length }) => (
-        <Key key={code} length={length || 30} name={name} />
+        <Key key={code} length={length || 27} name={name} />
       ))}
     </Grid>
   );

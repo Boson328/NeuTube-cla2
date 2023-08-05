@@ -15,9 +15,10 @@ export default function Key({
       sx={{
         backgroundColor: "#ffffff10",
         borderRadius: "7px",
-        height: "30px",
-        lineHeight: "30px",
-        margin: "5px",
+        fontSize: "14px",
+        height: "27px",
+        lineHeight: "27px",
+        margin: "4px",
         textAlign: "center",
         width: length + "px"
       }}

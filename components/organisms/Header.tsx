@@ -11,9 +11,9 @@ export default function Header() {
     <Box
       sx={{
         display: "flex",
-        height: "100px",
+        height: "90px",
         justifyContent: "space-between",
-        mx: "20px"
+        mx: "18px"
       }}
     >
       <Logo />

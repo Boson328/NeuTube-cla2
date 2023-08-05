@@ -1,16 +1,16 @@
 import type { KeyType } from "./types";
 
-const long = 45;
+const long = 40;
 
 export const usKeys: { [key: string]: KeyType } = {
   AltLeft: { code: "AltLeft", length: long, name: "", shift: "" },
   AltRight: { code: "AltRight", length: long, name: "", shift: "" },
   Backquote: { code: "Backquote", name: "`", shift: "~" },
-  Backslash: { code: "Backslash", length: 55, name: "\\", shift: "|" },
+  Backslash: { code: "Backslash", length: 60, name: "\\", shift: "|" },
   Backspace: { code: "Backspace", name: "Backspace", shift: "Backspace" },
   BracketLeft: { code: "BracketLeft", name: "[", shift: "{" },
   BracketRight: { code: "BracketRight", name: "]", shift: "}" },
-  CapsLock: { code: "CapsLock", length: 75, name: "", shift: "" },
+  CapsLock: { code: "CapsLock", length: 60, name: "", shift: "" },
   Comma: { code: "Comma", name: ",", shift: "<" },
   ControlLeft: { code: "ControlLeft", length: long, name: "", shift: "" },
   ControlRight: { code: "ControlRight", length: long, name: "", shift: "" },
@@ -25,7 +25,7 @@ export const usKeys: { [key: string]: KeyType } = {
   Digit7: { code: "Digit7", name: "7", shift: "&" },
   Digit8: { code: "Digit8", name: "8", shift: "*" },
   Digit9: { code: "Digit9", name: "9", shift: "(" },
-  Enter: { code: "Enter", length: 80, name: "Enter", shift: "Enter" },
+  Enter: { code: "Enter", length: 85, name: "Enter", shift: "Enter" },
   Equal: { code: "Equal", name: "=", shift: "+" },
   Escape: { code: "Escape", name: "es", shift: "es" },
   F1: { code: "F1", name: "F1", shift: "F1" },
@@ -84,16 +84,16 @@ export const usKeys: { [key: string]: KeyType } = {
   Quote: { code: "Quote", name: "'", shift: '"' },
   ScrollLock: { code: "ScrollLock", name: "Scroll Lock", shift: "Scroll Lock" },
   Semicolon: { code: "Semicolon", name: ";", shift: ":" },
-  ShiftLeft: { code: "ShiftLeft", length: 95, name: "Shift", shift: "Shift" },
+  ShiftLeft: { code: "ShiftLeft", length: 75, name: "Shift", shift: "Shift" },
   ShiftRight: {
     code: "ShiftRight",
-    length: 100,
+    length: 105,
     name: "Shift",
     shift: "Shift"
   },
   Slash: { code: "Slash", name: "/", shift: "?" },
-  Space: { code: "Space", length: 220, name: "", shift: "" },
-  Tab: { code: "Tab", length: 60, name: "", shift: "" }
+  Space: { code: "Space", length: 200, name: "", shift: "" },
+  Tab: { code: "Tab", length: 50, name: "", shift: "" }
 };
 
 export const jisKeys: { [key: string]: KeyType } = {

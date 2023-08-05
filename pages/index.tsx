@@ -21,16 +21,18 @@ export default function Home() {
       <Heading />
       <Box sx={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {videos && Array.isArray(videos) ? (
-          videos.map((video) => <BlockVideo info={video} key={video.id} />)
+          videos.map((video) => (
+            <BlockVideo info={video} key={video.id} width={260} />
+          ))
         ) : (
           <>
-            <SkeletonVideo />
-            <SkeletonVideo />
-            <SkeletonVideo />
-            <SkeletonVideo />
-            <SkeletonVideo />
-            <SkeletonVideo />
-            <SkeletonVideo />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
+            <SkeletonVideo width={260} />
           </>
         )}
       </Box>

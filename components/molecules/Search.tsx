@@ -56,7 +56,7 @@ export default function Search() {
     <Box
       sx={{
         color: "white",
-        height: "200px",
+        height: "180px",
         maxWidth: "700px",
         position: "relative",
         width: "40%"

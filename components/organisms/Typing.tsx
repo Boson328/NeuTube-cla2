@@ -61,9 +61,10 @@ export default function Typing({ words }: { words: WordsType }) {
       sx={{
         backgroundColor: "#ffffff15",
         borderRadius: "20px",
-        height: "150px",
+        height: "130px",
         letterSpacing: "0.8px",
-        my: "20px",
+        mb: "10px",
+        mt: "15px",
         padding: "25px 30px"
       }}
     >
@@ -71,14 +72,14 @@ export default function Typing({ words }: { words: WordsType }) {
         component="h2"
         sx={{
           color: isFinish ? "gray" : "primary.main",
-          fontSize: "20px",
-          height: "40px",
+          fontSize: "18px",
+          height: "32px",
           margin: "0px"
         }}
       >
         {displayWord.example}
       </Box>
-      <Box component="h4" sx={{ fontSize: "15px", height: "40px", m: "0px" }}>
+      <Box component="h4" sx={{ fontSize: "13px", height: "32px", m: "0px" }}>
         <Box component="span" sx={{ color: "gray" }}>
           {displayWord.typed}
         </Box>
@@ -88,8 +89,8 @@ export default function Typing({ words }: { words: WordsType }) {
         component="h3"
         sx={{
           color: "#fff7",
-          fontSize: "13px",
-          height: "13px",
+          fontSize: "12px",
+          height: "12px",
           m: "0"
         }}
       >

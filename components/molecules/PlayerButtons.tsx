@@ -20,7 +20,9 @@ export default function PlayerButtons({ info }: { info: VideoType }) {
     <Box
       sx={{
         display: "flex",
+        height: "50px",
         justifyContent: "space-between",
+        mb: "10px",
         position: "relative"
       }}
     >
@@ -40,7 +42,7 @@ export default function PlayerButtons({ info }: { info: VideoType }) {
           component="h3"
           sx={{
             color: "primary.main",
-            fontSize: "16px",
+            fontSize: "15px",
             height: "20px",
             lineHeight: "20px"
           }}
@@ -52,10 +54,10 @@ export default function PlayerButtons({ info }: { info: VideoType }) {
         component="h4"
         sx={{
           color: "gray",
-          fontSize: "15px",
+          fontSize: "13px",
           fontWeight: "500",
           height: "20px",
-          lineHeight: "20px",
+          lineHeight: "14px",
           ml: "50%",
           position: "absolute",
           transform: "translateX(-50%)"
@@ -67,20 +69,22 @@ export default function PlayerButtons({ info }: { info: VideoType }) {
         <Volume />
         <PlayerButton
           fill={<Flag />}
+          m="5px 10px"
           onClick={() => {
             console.log("click");
           }}
           outline={<FlagOutlined />}
-          size={45}
+          size={42}
         />
         <PlayerButton
           fill={<Favorite />}
           isFill={true}
+          m="5px 10px"
           onClick={() => {
             console.log("click");
           }}
           outline={<FavoriteBorder />}
-          size={45}
+          size={42}
         />
       </Box>
     </Box>

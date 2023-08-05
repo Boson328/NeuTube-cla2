@@ -19,7 +19,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
       <Box
         sx={{
           display: "flex",
-          height: "calc(100% - 120px)",
+          height: "calc(100% - 110px)",
           justifyContent: "center",
           width: "100%"
         }}

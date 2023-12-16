@@ -1,0 +1,10 @@
+/packages/frontend/dist/
+/packages/frontend/.astro/
+/packages/frontend/node_modules/
+/packages/frontend/npm-debug.log*
+/packages/frontend/yarn-debug.log*
+/packages/frontend/yarn-error.log*
+/packages/frontend/pnpm-debug.log*
+/packages/frontend/.env
+/packages/frontend/.env.production
+/packages/frontend/.DS_Store

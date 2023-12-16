@@ -1,0 +1,7 @@
+{
+    "name": "neutube",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ]
+}

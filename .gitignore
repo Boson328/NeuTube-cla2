@@ -1,5 +1,11 @@
+node_modules
+node_modules/
+bun.lockb
+.turbo/
+
 /packages/frontend/dist/
 /packages/frontend/.astro/
+/packages/frontend/node_modules
 /packages/frontend/node_modules/
 /packages/frontend/npm-debug.log*
 /packages/frontend/yarn-debug.log*

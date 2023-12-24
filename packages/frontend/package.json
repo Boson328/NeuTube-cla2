@@ -1,5 +1,5 @@
 {
-  "name": "packages-app",
+  "name": "packages-frontend",
   "private": true,
   "sideEffects": false,
   "type": "module",

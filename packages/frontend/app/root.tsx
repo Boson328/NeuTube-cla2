@@ -23,10 +23,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <div>
+          <Outlet />  {/* コンテンツが入る場所 */}
+        </div>
+        <ScrollRestoration />   {/* スクロール位置を復元 */}
+        <Scripts />             {/* JSの実行に必須 */}
+        <LiveReload />          {/* 開発時の変更にリロードを発生させる */}
       </body>
     </html>
   );
